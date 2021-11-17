@@ -15,23 +15,39 @@
   </head>
   <body>
     <!-- logo -->
-    <!-- <img class="logo" src="assets/flatagram-logo.png" /> -->
+
+    <h1>CAT-O-RATER</h1>
 
     <!-- image card -->
     <div class="image-container">
       <div class="image-card">
         <h2 id="card-title" class="title">Can we randomly generate a title?</h2>
-        <!-- <img id="card-image" class="image" src="./assets/image-placeholder.jpg" alt="Title of image goes here too" /> -->
-        <div class="rating-section">
-          <span id="rating-count" class="ratings">currently unrated</span>
-          <ul id ="rating-options" class="options-list">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-          </ul>
+
+        <img id="card-image" class="image" src="./assets/image-placeholder.jpg" alt="Title of image goes here too" />
+               
+     
+        <section id="like" class="rating">
+            <!-- FIFTH HEART -->
+            <input type="radio" id="heart_5" name="like" value="5" />
+            <label for="heart_5" title="Five">&#10084;</label>
+            <!-- FOURTH HEART -->
+            <input type="radio" id="heart_4" name="like" value="4" />
+            <label for="heart_4" title="Four">&#10084;</label>
+            <!-- THIRD HEART -->
+            <input type="radio" id="heart_3" name="like" value="3" />
+            <label for="heart_3" title="Three">&#10084;</label>
+            <!-- SECOND HEART -->
+            <input type="radio" id="heart_2" name="like" value="2" />
+            <label for="heart_2" title="Two">&#10084;</label>
+            <!-- FIRST HEART -->
+            <input type="radio" id="heart_1" name="like" value="1" />
+            <label for="heart_1" title="One">&#10084;</label>
+          </section>
+
+        <div class="current-rating">
+            Currently unrated
         </div>
+
         <ul id="comments-list" class="comments">
           <li>Get rid of these comments</li>
           <li>And replace them with the real ones</li>
