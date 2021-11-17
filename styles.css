@@ -15,7 +15,8 @@
   h1 {
     font-family: fantasy;
   }
-  
+
+ 
   .logo {
     margin-bottom: 20px;
   }
@@ -63,6 +64,19 @@
 
   .options-list li {
     display: inline;
+    margin: 2px 0;
+    letter-spacing: 0.2px;
+  }
+
+  .image-tags {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .image-tags li {
     margin: 2px 0;
     letter-spacing: 0.2px;
   }

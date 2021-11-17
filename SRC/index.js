@@ -19,11 +19,11 @@
     // 4. Consider what element we'd like to toggle to have the picture show/hide
 
 
-// document.addEventListener("DOMContentLoaded", initialize);
+document.addEventListener("DOMContentLoaded", initialize);
 
-// function initialize() {
-//     fetchCats();
-// }
+function initialize() {
+    fetchCats();
+}
     // fetch data
 let catSkip = 0
 function fetchCats() {
@@ -34,27 +34,28 @@ function fetchCats() {
 }
 // Peter: If we're going to do a whole card for each object, I think we're going to have to just declare everything within the render function.
 // map data onto HTML file 
-// const catImage = document.querySelector("#card-image");
-// const catTitle = document.querySelector("#card-title")
+const catImage = document.querySelector("#card-image");
+const catTitle = document.querySelector("#card-title")
 // // const dogLikes = document.querySelector("#like-count")
-// const catComments = document.querySelector("#comments-list")
+const catComments = document.querySelector("#comments-list")
 // // const likeButton = document.querySelector("#like-button")
-// const commentForm = document.querySelector("#comment")
+const commentForm = document.querySelector("#comment")
+const catTags = document.querySelector('#image-tags')
+const catCard = document.querySelector('#image-container')
 
     
 function renderCat(cats) {
     cats.forEach(cat=> {
-    let catCard = document.createElement("div")
-    let catImage = document.createElement("img")
-    let catTags = document.createElement("ul")
-    catImage.src = "https://cataas.com/cat/" + cat.id;
-    catCard.append (catImage, catTags)
-    cat.tags.forEach((tag) => {
-        console.log(tag)
-        let li = document.createElement("li");
-        li.innerText = tag;
-        catTags.appendChild(li);
-    })
+        catImage.src = "https://cataas.com/cat/" + cat.id;
+        catCard.append (catImage, catTags)
+        cat.tags.forEach((tag) => {
+            console.log(tag)
+            let li = document.createElement("li");
+            li.innerText = tag;
+            catTags.appendChild(li);
+        })
+        
+
     let placeholder = document.querySelector(".image-container")
     placeholder.append (catCard)
 })}
