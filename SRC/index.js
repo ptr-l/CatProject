@@ -16,6 +16,7 @@
     // 1. Update to fetch from the right API;
     // 2. Update to run render function on each of the Cats fetched;
     // 3. Change Likes function to Rating function;
+    // 4. Consider what element we'd like to toggle to have the picture show/hide
 
 
 
@@ -32,9 +33,9 @@ function fetchCats() {
 }
     // map data onto HTML file
 const catImage = document.querySelector("#card-image");
-// const dogTitle = document.querySelector("#card-title")
+const catTitle = document.querySelector("#card-title")
 // const dogLikes = document.querySelector("#like-count")
-const dogComments = document.querySelector("#comments-list")
+const catComments = document.querySelector("#comments-list")
 // const likeButton = document.querySelector("#like-button")
 const commentForm = document.querySelector("#comment")
 
@@ -54,14 +55,14 @@ function renderCat(cat) {
 
 // 2. Click on the heart icon to increase image likes on the page. No persistence is needed.
 
-likeButton.addEventListener("click", addLike)
+// likeButton.addEventListener("click", addLike)
 
-let clicksCount = 0;
+// let clicksCount = 0;
 
-function addLike() {
-    clicksCount += 1;
-    dogLikes.textContent = `${clicksCount} likes`
-}
+// function addLike() {
+//     clicksCount += 1;
+//     dogLikes.textContent = `${clicksCount} likes`
+// }
 
 
 // 3. Add a new comment to the page when the comment form is submitted. No persistence is needed.
@@ -72,39 +73,39 @@ function addComment () {
     event.preventDefault();
     let li = document.createElement("li");
     li.textContent = commentForm.value;
-    dogComments.appendChild(li);
+    catComments.appendChild(li);
 
 }
 
 
 // BONUS: remove comment when clicked
 
-dogComments.addEventListener("click", function(e) {
+catComments.addEventListener("click", function(e) {
     if (e.target && e.target.nodeName == "LI") {
-        dogComments.removeChild(e.target);
+        catComments.removeChild(e.target);
     }
 })
 
 // BONUS: hide+show image when title clicked
 
-dogTitle.addEventListener("click", function(e) {
-    if (dogImage.style.display !== "none") {
-        dogImage.style.display = "none";
+catTitle.addEventListener("click", function(e) {
+    if (catImage.style.display !== "none") {
+        catImage.style.display = "none";
     } else {
-        dogImage.style.display = "block"
+        catImage.style.display = "block"
     }
 })
 
 // BONUS: replace dog image with random image via GET request
 
-dogImage.addEventListener("click", newDogImage);
+// dogImage.addEventListener("click", newDogImage);
 
-function newDogImage() {
-    fetch("https://dog.ceo/api/breeds/image/random")
-    .then((response) => response.json())
-    .then((newImage) => refreshDog(newImage))
-}
+// function newDogImage() {
+//     fetch("https://dog.ceo/api/breeds/image/random")
+//     .then((response) => response.json())
+//     .then((newImage) => refreshDog(newImage))
+// }
 
-function refreshDog (pic) {
-    dogImage.src = pic.message;
-}
+// function refreshDog (pic) {
+//     dogImage.src = pic.message;
+// }

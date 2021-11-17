@@ -43,14 +43,26 @@
     color: #000000dd;
   }
   
-  .likes-section {
+  .rating-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
   }
+
+  .options-list {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 10px;
+    font-size: 0.85rem;
+  }
+  .options-list li {
+    display: inline;
+    margin: 2px 0;
+    letter-spacing: 0.2px;
+  }
   
-  .likes {
+  /* .likes {
     font-size: 0.9rem;
     font-weight: 600;
   }
@@ -74,7 +86,7 @@
   
   .like-button:focus {
     outline: none;
-  }
+  } */
   
   .comments {
     list-style-type: none;
