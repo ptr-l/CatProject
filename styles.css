@@ -11,6 +11,10 @@
     text-align: center;
     background-color: #fafafa;
   }
+
+  h1 {
+    font-family: fantasy;
+  }
   
   .logo {
     margin-bottom: 20px;
@@ -25,7 +29,7 @@
   .image-card {
     width: 300px;
     border: 1px solid #00000020;
-    border-radius: 2px;
+    border-radius: 20px;
     text-align: left;
     background-color: white;
   }
@@ -56,38 +60,13 @@
     padding-left: 10px;
     font-size: 0.85rem;
   }
+  
   .options-list li {
     display: inline;
     margin: 2px 0;
     letter-spacing: 0.2px;
   }
-  
-  /* .likes {
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-  
-  .like-button {
-    color: rgb(255, 127, 80);
-    font-size: 1.5rem;
-    border: none;
-    background: none;
-    transition: color 300ms;
-    cursor: pointer;
-  }
-  
-  .like-button:hover {
-    color: rgb(241, 71, 19);
-  }
-  
-  .like-button:active {
-    color: rgb(253, 159, 124);
-  }
-  
-  .like-button:focus {
-    outline: none;
-  } */
-  
+    
   .comments {
     list-style-type: none;
     margin-left: 0;
@@ -137,4 +116,51 @@
   .comment-button:focus {
     outline: none;
   }
-  
+  .rating {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 175px;
+    height: 30px;
+    padding: 5px 10px;
+    margin: auto;
+    border-radius: 30px;
+    background: #FFF;
+    display: block;
+    overflow: hidden;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+  }
+  .rating:not(:checked) > input {
+    display: none;
+  }
+
+  #like {
+    bottom: -65px;
+  }
+  #like:not(:checked) > label {
+    cursor:pointer;
+    float: right;
+    width: 30px;
+    height: 30px;
+    display: block;
+    
+    color: rgba(233, 54, 40, .4);
+    line-height: 33px;
+    text-align: center;
+  }
+  #like:not(:checked) > label:hover,
+  #like:not(:checked) > label:hover ~ label {
+    color: rgba(233, 54, 40, .6);
+  }
+  #like > input:checked + label:hover,
+  #like > input:checked + label:hover ~ label,
+  #like > input:checked ~ label:hover,
+  #like > input:checked ~ label:hover ~ label,
+  #like > label:hover ~ input:checked ~ label {
+    color: rgba(233, 54, 40, .8);
+  }
+  #like > input:checked ~ label {
+    color: rgb(233, 54, 40);
+  }
