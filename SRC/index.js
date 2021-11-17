@@ -38,6 +38,7 @@ const catCard = document.querySelector('#image-container')
 const catImage = document.querySelector("#card-image");
 const catTitle = document.querySelector("#card-title")
 const catTags = document.querySelector('#image-tags')
+const catLikes = document.querySelector('.rating')
 const commentForm = document.querySelector('#comment-form')
 const catComments = document.querySelector("#comments-list")
 const commentInput = document.querySelector("#comment")
@@ -53,11 +54,13 @@ function renderCat(cats) {
             li.innerText = `${tag} `;
             catTags.appendChild(li);
         }) 
-})}
+    })
+}
 
 nextButton.onclick = function nextCat() {
         catSkip = catSkip + 1
         catTags.innerHTML = ""
+        catLikes.reset();
         fetchCats()
 }
 
@@ -66,20 +69,19 @@ prevButton.onclick = function priorCat() {
     if (catSkip > 1) {
         catSkip = catSkip - 1 
         catTags.innerHTML = ""
+        catLikes.reset();
         fetchCats()
     }
 }
 
 
-document.addEventListener("submit", addComment);
-
-function addComment () {
+document.addEventListener("submit", function () {
     event.preventDefault();
     let li = document.createElement("li");
     li.textContent = commentInput.value;
     catComments.appendChild(li);
     commentForm.reset()
-}
+})
 
 catComments.addEventListener("click", function(e) {
     if (e.target && e.target.nodeName == "LI") {
