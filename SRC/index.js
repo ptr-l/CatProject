@@ -66,6 +66,13 @@ function priorCat() {
     fetchCats()
 }
 
+document.getElementById("Next").addEventListener('click', (e) => {
+    nextCat()
+})
+document.getElementById("Previous").addEventListener('click', (e) => {
+    priorCat()
+})
+
 // function catForwards
 // 2. Click on the heart icon to increase image likes on the page. No persistence is needed.
 
