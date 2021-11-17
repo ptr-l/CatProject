@@ -34,15 +34,15 @@ function fetchCats() {
 }
 // Peter: If we're going to do a whole card for each object, I think we're going to have to just declare everything within the render function.
 // map data onto HTML file 
+const catCard = document.querySelector('#image-container')
 const catImage = document.querySelector("#card-image");
 const catTitle = document.querySelector("#card-title")
+const catTags = document.querySelector('#image-tags')
+const commentForm = document.querySelector('#comment-form')
 const catComments = document.querySelector("#comments-list")
 const commentInput = document.querySelector("#comment")
-const catTags = document.querySelector('#image-tags')
-const catCard = document.querySelector('#image-container')
 const nextButton = document.querySelector('#next-button')
 const prevButton = document.querySelector('#previous-button')
-const commentForm = document.querySelector('#comment-form')
 
     
 function renderCat(cats) {

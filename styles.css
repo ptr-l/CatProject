@@ -118,7 +118,7 @@
     border: none;
     font-size: 0.8rem;
     font-weight: 600;
-    color: rgb(92, 114, 238);
+    color: rgb(0, 0, 0);
     cursor: pointer;
     transition: color 300ms;
     border-radius: 10px;
@@ -147,6 +147,12 @@
     margin-left: 15px;
     margin-right: 15px;
     border-radius: 10px;
+    transition: color 300ms;
+    cursor: pointer;
+  }
+
+  .nav-button:hover {
+    color: rgb(245, 148, 37)
   }
 
   .rating {
