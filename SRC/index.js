@@ -49,7 +49,7 @@ function renderCat(cats) {
         catImage.src = "https://cataas.com/cat/" + cat.id;
         cat.tags.forEach((tag) => {
             let li = document.createElement("li");
-            li.innerText = tag;
+            li.innerText = `${tag}, `;
             catTags.appendChild(li);
         })
         
