@@ -40,7 +40,7 @@ const catTitle = document.querySelector("#card-title")
 const catComments = document.querySelector("#comments-list")
 // // const likeButton = document.querySelector("#like-button")
 const commentForm = document.querySelector("#comment")
-const catTags = document.querySelector('.image-tags')
+const catTags = document.querySelector('#image-tags')
 const catCard = document.querySelector('#image-container')
 
     
@@ -51,8 +51,7 @@ function renderCat(cats) {
             let li = document.createElement("li");
             li.innerText = `${tag}, `;
             catTags.appendChild(li);
-        })
-        
+        }) 
 })}
 
 
