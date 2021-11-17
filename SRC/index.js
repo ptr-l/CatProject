@@ -25,9 +25,9 @@ function initialize() {
     fetchCats();
 }
     // fetch data
-let catSkip = 0
+let catSkip = 1
 function fetchCats() {
-    fetch(`https://cataas.com/api/cats?skip=${catSkip}&limit=1`)
+    fetch(`http://localhost:3000/cats?_page=${catSkip}&_limit=1`)
     //API notes: skip=[integer] is the formatting for paging through the results - persumably if we want to page it'll be a 10skip per buttton press.
     .then((response) => response.json())
     .then((cats) => renderCat(cats))
