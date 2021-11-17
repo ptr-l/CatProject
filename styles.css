@@ -40,7 +40,7 @@
   }
   
   .title {
-    text-align: left;
+    text-align: center;
     padding: 15px 10px;
     font-size: 0.9rem;
     font-weight: 600;
@@ -60,7 +60,7 @@
     padding-left: 10px;
     font-size: 0.85rem;
   }
-  
+
   .options-list li {
     display: inline;
     margin: 2px 0;
@@ -163,4 +163,10 @@
   }
   #like > input:checked ~ label {
     color: rgb(233, 54, 40);
+  }
+
+  .current-rating {
+    text-align:center;
+    padding:15px 10px;
+    font-size:.90rem;
   }
