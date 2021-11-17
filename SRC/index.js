@@ -63,7 +63,7 @@ nextButton.onclick = function nextCat() {
 
 
 prevButton.onclick = function priorCat() {
-    if (catSkip >=1) {
+    if (catSkip > 1) {
         catSkip = catSkip - 1 
         catTags.innerHTML = ""
         fetchCats()
