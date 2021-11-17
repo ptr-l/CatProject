@@ -71,7 +71,7 @@
     letter-spacing: 0.2px;
   }
 
-  .image-tags {
+  .tags {
     list-style-type: none;
     margin-left: 0;
     padding-left: 10px;
@@ -79,9 +79,10 @@
     font-weight: 700;
   }
 
-  .image-tags li {
+  .tags li {
     margin: 2px 0;
     letter-spacing: 0.2px;
+    display: inline;
   }
     
   .comments {
@@ -133,6 +134,17 @@
   .comment-button:focus {
     outline: none;
   }
+
+  .more-cats-button {
+    border: none;
+    font-size: 1.0rem;
+    font-weight: 600;
+    background-color:gold;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+
   .rating {
     top: 0;
     left: 0;

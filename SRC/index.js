@@ -47,16 +47,16 @@ const catCard = document.querySelector('#image-container')
 function renderCat(cats) {
     cats.forEach(cat=> {
         catImage.src = "https://cataas.com/cat/" + cat.id;
-        catCard.append (catImage, catTags)
         cat.tags.forEach((tag) => {
             console.log(tag)
             let li = document.createElement("li");
-            li.innerText = tag;
+            li.innerText = `${tag}, `;
             catTags.appendChild(li);
         })
-        
 
-    let placeholder = document.querySelector(".image-container")
+        catCard.append (catImage, catTags)
+
+    let placeholder = document.querySelector("#image-container")
     placeholder.append (catCard)
 })}
 
