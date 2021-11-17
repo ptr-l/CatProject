@@ -27,7 +27,7 @@ function initialize() {
     // fetch data
 let catSkip = 0
 function fetchCats() {
-    fetch(`https://cataas.com/api/cats?skip=${catSkip}&limit=10`)
+    fetch(`https://cataas.com/api/cats?skip=${catSkip}&limit=1`)
     //API notes: skip=[integer] is the formatting for paging through the results - persumably if we want to page it'll be a 10skip per buttton press.
     .then((response) => response.json())
     .then((cats) => renderCat(cats))
@@ -40,32 +40,30 @@ const catTitle = document.querySelector("#card-title")
 const catComments = document.querySelector("#comments-list")
 // // const likeButton = document.querySelector("#like-button")
 const commentForm = document.querySelector("#comment")
-const catTags = document.querySelector('#image-tags')
+const catTags = document.querySelector('.image-tags')
 const catCard = document.querySelector('#image-container')
 
     
 function renderCat(cats) {
     cats.forEach(cat=> {
         catImage.src = "https://cataas.com/cat/" + cat.id;
-        catCard.append (catImage, catTags)
         cat.tags.forEach((tag) => {
-            console.log(tag)
             let li = document.createElement("li");
             li.innerText = tag;
             catTags.appendChild(li);
         })
         
-
-    let placeholder = document.querySelector(".image-container")
-    placeholder.append (catCard)
 })}
 
 
-let moreCatsButton = document.createElement('button')
-function getMoreCats() {
-    catSkip = catSkip + 10
-    let placeholder = document.querySelector(".image-container")
-    placeholder.innerHTML = ""
+function nextCat() {
+    catSkip = catSkip + 1
+    catTags.innerHTML = ""
+    fetchCats()
+}
+function priorCat() {
+    catSkip = catSkip - 1 
+    catTags.innerHTML = ""
     fetchCats()
 }
 
