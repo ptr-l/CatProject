@@ -19,17 +19,17 @@
     // 4. Consider what element we'd like to toggle to have the picture show/hide
 
 
-document.addEventListener("DOMContentLoaded", initialize);
+// document.addEventListener("DOMContentLoaded", initialize);
 
-function initialize() {
-    fetchCats();
-}
+// function initialize() {
+//     fetchCats();
+// }
     // fetch data
 function fetchCats() {
     fetch("https://cataas.com/api/cats?skip=0&limit=10")
     //API notes: skip=[integer] is the formatting for paging through the results - persumably if we want to page it'll be a 10skip per buttton press.
     .then((response) => response.json())
-    .then((cat) => renderCat(cat))
+    .then((cats) => renderCat(cats))
 }
 // Peter: If we're going to do a whole card for each object, I think we're going to have to just declare everything within the render function.
 // map data onto HTML file 
@@ -41,19 +41,22 @@ function fetchCats() {
 // const commentForm = document.querySelector("#comment")
 
     
-function renderCat(cat) {
+function renderCat(cats) {
+    cats.forEach(cat=> {
     let catCard = document.createElement("div")
     let catImage = document.createElement("img")
     let catTags = document.createElement("ul")
-    catImage.src = cat.url;
-    catCard.appendChild (catImage, catTags)
+    catImage.src = "https://cataas.com/cat/" + cat.id;
+    catCard.append (catImage, catTags)
     cat.tags.forEach((tag) => {
+        console.log(tag)
         let li = document.createElement("li");
-        li.textContent = tag;
-        catComments.appendChild(li);
+        li.innerText = tag;
+        catTags.appendChild(li);
     })
-    document.getElementsByClassName("image-container").appendChild(catCard)
-}
+    let placeholder = document.querySelector(".image-container")
+    placeholder.append (catCard)
+})}
 
 // 2. Click on the heart icon to increase image likes on the page. No persistence is needed.
 
@@ -69,34 +72,34 @@ function renderCat(cat) {
 
 // 3. Add a new comment to the page when the comment form is submitted. No persistence is needed.
 
-document.addEventListener("submit", addComment);
+// document.addEventListener("submit", addComment);
 
-function addComment () {
-    event.preventDefault();
-    let li = document.createElement("li");
-    li.textContent = commentForm.value;
-    catComments.appendChild(li);
+// function addComment () {
+//     event.preventDefault();
+//     let li = document.createElement("li");
+//     li.textContent = commentForm.value;
+//     catComments.appendChild(li);
 
-}
+// }
 
 
-// BONUS: remove comment when clicked
+// // BONUS: remove comment when clicked
 
-catComments.addEventListener("click", function(e) {
-    if (e.target && e.target.nodeName == "LI") {
-        catComments.removeChild(e.target);
-    }
-})
+// catComments.addEventListener("click", function(e) {
+//     if (e.target && e.target.nodeName == "LI") {
+//         catComments.removeChild(e.target);
+//     }
+// })
 
-// BONUS: hide+show image when title clicked
+// // BONUS: hide+show image when title clicked
 
-catTitle.addEventListener("click", function(e) {
-    if (catImage.style.display !== "none") {
-        catImage.style.display = "none";
-    } else {
-        catImage.style.display = "block"
-    }
-})
+// catTitle.addEventListener("click", function(e) {
+//     if (catImage.style.display !== "none") {
+//         catImage.style.display = "none";
+//     } else {
+//         catImage.style.display = "block"
+//     }
+// })
 
 // BONUS: replace dog image with random image via GET request
 
