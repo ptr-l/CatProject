@@ -58,10 +58,10 @@ function renderCat(cats) {
 }
 
 nextButton.onclick = function nextCat() {
-        catSkip = catSkip + 1
-        catTags.innerHTML = ""
-        catLikes.reset();
-        fetchCats()
+    catSkip = catSkip + 1
+    catTags.innerHTML = ""
+    catLikes.reset();
+    fetchCats()
 }
 
 
