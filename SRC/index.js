@@ -10,4 +10,101 @@
     // Eve: I think we should be okay to include a comment as part of the card itself so that the comment gets tied to the card object, and we wind up with a nested array of comments?
 //Stretch: On Submitting Tag- Display Cats with associated submitted tag
 //  Stretch for the Stretch: Offer an expandable list of tags so people know what options they can choose from.
-//
+
+
+// dropping in my JS code from Flatagram, b/c I guess why not? We'll need to:
+    // 1. Update to fetch from the right API;
+    // 2. Update to run render function on each of the Cats fetched;
+    // 3. Change Likes function to Rating function;
+
+
+
+document.addEventListener("DOMContentLoaded", initialize);
+
+function initialize() {
+    fetchDog();
+}
+    // fetch data
+function fetchDog() {
+    fetch("http://localhost:3000/images/1")
+    .then((response) => response.json())
+    .then((dogData) => renderDog(dogData))
+}
+    // map data onto HTML file
+const dogImage = document.querySelector("#card-image");
+const dogTitle = document.querySelector("#card-title")
+const dogLikes = document.querySelector("#like-count")
+const dogComments = document.querySelector("#comments-list")
+const likeButton = document.querySelector("#like-button")
+const commentForm = document.querySelector("#comment")
+
+    
+function renderDog(dog) {
+    dogTitle.textContent = dog.title;
+    dogImage.src = dog.image;
+    dogLikes.textContent = `${dog.likes} likes` ;
+    dogComments.innerHTML = "";
+    dog.comments.forEach((comment) => {
+        let li = document.createElement("li");
+        li.textContent = comment.content;
+        li.id = comment.id
+        dogComments.appendChild(li);
+    })
+}
+
+// 2. Click on the heart icon to increase image likes on the page. No persistence is needed.
+
+likeButton.addEventListener("click", addLike)
+
+let clicksCount = 0;
+
+function addLike() {
+    clicksCount += 1;
+    dogLikes.textContent = `${clicksCount} likes`
+}
+
+
+// 3. Add a new comment to the page when the comment form is submitted. No persistence is needed.
+
+document.addEventListener("submit", addComment);
+
+function addComment () {
+    event.preventDefault();
+    let li = document.createElement("li");
+    li.textContent = commentForm.value;
+    dogComments.appendChild(li);
+
+}
+
+
+// BONUS: remove comment when clicked
+
+dogComments.addEventListener("click", function(e) {
+    if (e.target && e.target.nodeName == "LI") {
+        dogComments.removeChild(e.target);
+    }
+})
+
+// BONUS: hide+show image when title clicked
+
+dogTitle.addEventListener("click", function(e) {
+    if (dogImage.style.display !== "none") {
+        dogImage.style.display = "none";
+    } else {
+        dogImage.style.display = "block"
+    }
+})
+
+// BONUS: replace dog image with random image via GET request
+
+dogImage.addEventListener("click", newDogImage);
+
+function newDogImage() {
+    fetch("https://dog.ceo/api/breeds/image/random")
+    .then((response) => response.json())
+    .then((newImage) => refreshDog(newImage))
+}
+
+function refreshDog (pic) {
+    dogImage.src = pic.message;
+}
