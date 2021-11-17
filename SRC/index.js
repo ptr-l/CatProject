@@ -39,11 +39,12 @@ const catTitle = document.querySelector("#card-title")
 // // const dogLikes = document.querySelector("#like-count")
 const catComments = document.querySelector("#comments-list")
 // // const likeButton = document.querySelector("#like-button")
-const commentForm = document.querySelector("#comment")
+const commentInput = document.querySelector("#comment")
 const catTags = document.querySelector('#image-tags')
 const catCard = document.querySelector('#image-container')
 const nextButton = document.querySelector('#next-button')
 const prevButton = document.querySelector('#previous-button')
+const commentForm = document.querySelector('#comment-form')
 
     
 function renderCat(cats) {
@@ -87,15 +88,15 @@ prevButton.onclick =
 
 // 3. Add a new comment to the page when the comment form is submitted. No persistence is needed.
 
-// document.addEventListener("submit", addComment);
+document.addEventListener("submit", addComment);
 
-// function addComment () {
-//     event.preventDefault();
-//     let li = document.createElement("li");
-//     li.textContent = commentForm.value;
-//     catComments.appendChild(li);
-
-// }
+function addComment () {
+    event.preventDefault();
+    let li = document.createElement("li");
+    li.textContent = commentInput.value;
+    catComments.appendChild(li);
+    commentForm.reset()
+}
 
 
 // // BONUS: remove comment when clicked
