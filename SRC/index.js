@@ -19,7 +19,6 @@
     // 4. Consider what element we'd like to toggle to have the picture show/hide
 
 
-
 document.addEventListener("DOMContentLoaded", initialize);
 
 function initialize() {
@@ -27,30 +26,33 @@ function initialize() {
 }
     // fetch data
 function fetchCats() {
-    fetch("https://cataas.com/api/cats?limit=10")
+    fetch("https://cataas.com/api/cats?skip=0&limit=10")
+    //API notes: skip=[integer] is the formatting for paging through the results - persumably if we want to page it'll be a 10skip per buttton press.
     .then((response) => response.json())
     .then((cat) => renderCat(cat))
 }
-    // map data onto HTML file
-const catImage = document.querySelector("#card-image");
-const catTitle = document.querySelector("#card-title")
-// const dogLikes = document.querySelector("#like-count")
-const catComments = document.querySelector("#comments-list")
-// const likeButton = document.querySelector("#like-button")
-const commentForm = document.querySelector("#comment")
+// Peter: If we're going to do a whole card for each object, I think we're going to have to just declare everything within the render function.
+// map data onto HTML file 
+// const catImage = document.querySelector("#card-image");
+// const catTitle = document.querySelector("#card-title")
+// // const dogLikes = document.querySelector("#like-count")
+// const catComments = document.querySelector("#comments-list")
+// // const likeButton = document.querySelector("#like-button")
+// const commentForm = document.querySelector("#comment")
 
     
 function renderCat(cat) {
-    // dogTitle.textContent = dog.title;
-    catImage.src = cat.id;
-    // dogLikes.textContent = `${dog.likes} likes` ;
-    catComments.innerHTML = "";
-    cat.comments.forEach((comment) => {
+    let catCard = document.createElement("div")
+    let catImage = document.createElement("img")
+    let catTags = document.createElement("ul")
+    catImage.src = cat.url;
+    catCard.appendChild (catImage, catTags)
+    cat.tags.forEach((tag) => {
         let li = document.createElement("li");
-        li.textContent = comment.content;
-        li.id = comment.id
+        li.textContent = tag;
         catComments.appendChild(li);
     })
+    document.getElementsByClassName("image-container").appendChild(catCard)
 }
 
 // 2. Click on the heart icon to increase image likes on the page. No persistence is needed.
