@@ -36,9 +36,7 @@ function fetchCats() {
 // map data onto HTML file 
 const catImage = document.querySelector("#card-image");
 const catTitle = document.querySelector("#card-title")
-// // const dogLikes = document.querySelector("#like-count")
 const catComments = document.querySelector("#comments-list")
-// // const likeButton = document.querySelector("#like-button")
 const commentInput = document.querySelector("#comment")
 const catTags = document.querySelector('#image-tags')
 const catCard = document.querySelector('#image-container')
@@ -57,36 +55,21 @@ function renderCat(cats) {
         }) 
 })}
 
-nextButton.onclick =
-    function nextCat() {
+nextButton.onclick = function nextCat() {
         catSkip = catSkip + 1
         catTags.innerHTML = ""
         fetchCats()
-    }
-
-prevButton.onclick = 
-    function priorCat() {
-        if (catSkip >=1) {
-            catSkip = catSkip - 1 
-            catTags.innerHTML = ""
-            fetchCats()
-        }
 }
 
-// function catForwards
-// 2. Click on the heart icon to increase image likes on the page. No persistence is needed.
 
-// likeButton.addEventListener("click", addLike)
+prevButton.onclick = function priorCat() {
+    if (catSkip >=1) {
+        catSkip = catSkip - 1 
+        catTags.innerHTML = ""
+        fetchCats()
+    }
+}
 
-// let clicksCount = 0;
-
-// function addLike() {
-//     clicksCount += 1;
-//     dogLikes.textContent = `${clicksCount} likes`
-// }
-
-
-// 3. Add a new comment to the page when the comment form is submitted. No persistence is needed.
 
 document.addEventListener("submit", addComment);
 
@@ -97,9 +80,6 @@ function addComment () {
     catComments.appendChild(li);
     commentForm.reset()
 }
-
-
-// // BONUS: remove comment when clicked
 
 catComments.addEventListener("click", function(e) {
     if (e.target && e.target.nodeName == "LI") {
@@ -116,17 +96,3 @@ catComments.addEventListener("click", function(e) {
 //         catImage.style.display = "block"
 //     }
 // })
-
-// BONUS: replace dog image with random image via GET request
-
-// dogImage.addEventListener("click", newDogImage);
-
-// function newDogImage() {
-//     fetch("https://dog.ceo/api/breeds/image/random")
-//     .then((response) => response.json())
-//     .then((newImage) => refreshDog(newImage))
-// }
-
-// function refreshDog (pic) {
-//     dogImage.src = pic.message;
-// } 
