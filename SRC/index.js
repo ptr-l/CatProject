@@ -101,11 +101,11 @@ function addComment () {
 
 // // BONUS: remove comment when clicked
 
-// catComments.addEventListener("click", function(e) {
-//     if (e.target && e.target.nodeName == "LI") {
-//         catComments.removeChild(e.target);
-//     }
-// })
+catComments.addEventListener("click", function(e) {
+    if (e.target && e.target.nodeName == "LI") {
+        catComments.removeChild(e.target);
+    }
+})
 
 // // BONUS: hide+show image when title clicked
 
