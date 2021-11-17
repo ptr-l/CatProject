@@ -22,33 +22,33 @@
 document.addEventListener("DOMContentLoaded", initialize);
 
 function initialize() {
-    fetchDog();
+    fetchCats();
 }
     // fetch data
-function fetchDog() {
-    fetch("http://localhost:3000/images/1")
+function fetchCats() {
+    fetch("https://cataas.com/api/cats?limit=10")
     .then((response) => response.json())
-    .then((dogData) => renderDog(dogData))
+    .then((cat) => renderCat(cat))
 }
     // map data onto HTML file
-const dogImage = document.querySelector("#card-image");
-const dogTitle = document.querySelector("#card-title")
-const dogLikes = document.querySelector("#like-count")
+const catImage = document.querySelector("#card-image");
+// const dogTitle = document.querySelector("#card-title")
+// const dogLikes = document.querySelector("#like-count")
 const dogComments = document.querySelector("#comments-list")
-const likeButton = document.querySelector("#like-button")
+// const likeButton = document.querySelector("#like-button")
 const commentForm = document.querySelector("#comment")
 
     
-function renderDog(dog) {
-    dogTitle.textContent = dog.title;
-    dogImage.src = dog.image;
-    dogLikes.textContent = `${dog.likes} likes` ;
-    dogComments.innerHTML = "";
-    dog.comments.forEach((comment) => {
+function renderCat(cat) {
+    // dogTitle.textContent = dog.title;
+    catImage.src = cat.id;
+    // dogLikes.textContent = `${dog.likes} likes` ;
+    catComments.innerHTML = "";
+    cat.comments.forEach((comment) => {
         let li = document.createElement("li");
         li.textContent = comment.content;
         li.id = comment.id
-        dogComments.appendChild(li);
+        catComments.appendChild(li);
     })
 }
 
