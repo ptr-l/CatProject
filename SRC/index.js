@@ -25,8 +25,9 @@
 //     fetchCats();
 // }
     // fetch data
+let catSkip = 0
 function fetchCats() {
-    fetch("https://cataas.com/api/cats?skip=0&limit=10")
+    fetch(`https://cataas.com/api/cats?skip=${catSkip}&limit=10`)
     //API notes: skip=[integer] is the formatting for paging through the results - persumably if we want to page it'll be a 10skip per buttton press.
     .then((response) => response.json())
     .then((cats) => renderCat(cats))
@@ -58,6 +59,16 @@ function renderCat(cats) {
     placeholder.append (catCard)
 })}
 
+
+let moreCatsButton = document.createElement('button')
+function getMoreCats() {
+    catSkip = catSkip + 10
+    let placeholder = document.querySelector(".image-container")
+    placeholder.innerHTML = ""
+    fetchCats()
+}
+
+// function catForwards
 // 2. Click on the heart icon to increase image likes on the page. No persistence is needed.
 
 // likeButton.addEventListener("click", addLike)
@@ -113,4 +124,4 @@ function renderCat(cats) {
 
 // function refreshDog (pic) {
 //     dogImage.src = pic.message;
-// }
+// } 
