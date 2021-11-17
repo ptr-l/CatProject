@@ -42,6 +42,8 @@ const catComments = document.querySelector("#comments-list")
 const commentForm = document.querySelector("#comment")
 const catTags = document.querySelector('#image-tags')
 const catCard = document.querySelector('#image-container')
+const nextButton = document.querySelector('#next-button')
+const prevButton = document.querySelector('#previous-button')
 
     
 function renderCat(cats) {
@@ -54,16 +56,20 @@ function renderCat(cats) {
         }) 
 })}
 
+nextButton.onclick =
+    function nextCat() {
+        catSkip = catSkip + 1
+        catTags.innerHTML = ""
+        fetchCats()
+    }
 
-function nextCat() {
-    catSkip = catSkip + 1
-    catTags.innerHTML = ""
-    fetchCats()
-}
-function priorCat() {
-    catSkip = catSkip - 1 
-    catTags.innerHTML = ""
-    fetchCats()
+prevButton.onclick = 
+    function priorCat() {
+        if (catSkip >=1) {
+            catSkip = catSkip - 1 
+            catTags.innerHTML = ""
+            fetchCats()
+        }
 }
 
 // function catForwards
