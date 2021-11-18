@@ -39,6 +39,7 @@ const catImage = document.querySelector("#card-image");
 const catTitle = document.querySelector("#card-title")
 const catTags = document.querySelector('#image-tags')
 const catLikes = document.querySelector('.rating')
+const ratingAverage = document.querySelector("#ratings-average")
 const commentForm = document.querySelector('#comment-form')
 const catComments = document.querySelector("#comments-list")
 const commentInput = document.querySelector("#comment")
@@ -98,6 +99,22 @@ catComments.addEventListener("click", function(e) {
         catComments.removeChild(e.target);
     }
 })
+
+const averageLikes = [" "]
+
+function avgMath (likes){
+    const total = likes.reduce((acc, c) => acc + c, 0);
+    return avg = total / likes.length
+}
+
+catLikes.onclick =  function likesClicked() {
+    let likesClick = document.querySelector ('input[name="like"]:checked');
+    if(likesClick != null) {
+        averageLikes.push(parseInt(likesClick.value));
+        console.log(averageLikes);
+        ratingAverage.innerHTML = "This cat's average rating is: " + avgMath(averageLikes);
+    }
+}
 
 // // BONUS: hide+show image when title clicked
 
