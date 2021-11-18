@@ -16,6 +16,17 @@
     font-family: fantasy;
   }
 
+  h2 {
+    padding: 10px;
+    text-align: center;
+  }
+
+  h3 {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8rem
+  }
+
  
   .logo {
     margin-bottom: 20px;
