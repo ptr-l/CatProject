@@ -50,17 +50,17 @@ function renderCat(cats) {
     cats.forEach(cat=> {
         catImage.src = "https://cataas.com/cat/" + cat.id;
         catComments.innerHTML = ""
-        cat.comments.forEach((comment) => {
-            let li = document.createElement("li");
-            li.innerText = `${comment}`
-            catComments.appendChild(li)
-        })
         cat.tags.forEach((tag) => {
             let li = document.createElement("li");
             li.innerText = `${tag} `;
             catTags.appendChild(li);
         }) 
-    })
+        if (typeof(cat.comments) == 'object'){cat.comments.forEach((comment) => {
+            let li = document.createElement("li");
+            li.innerText = `${comment}`
+            catComments.appendChild(li)
+        })
+    }})
 }
 
 nextButton.onclick = function nextCat() {
@@ -81,9 +81,9 @@ prevButton.onclick = function priorCat() {
 }
 
 //POST/PATCH/DELETE coming here ->
-function updateCat() {
-   fetch()
-}
+// function updateCat() {
+//    fetch()
+// }
 
 document.addEventListener("submit", function () {
     event.preventDefault();
