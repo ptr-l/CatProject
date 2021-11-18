@@ -49,6 +49,7 @@ const prevButton = document.querySelector('#previous-button')
 function renderCat(cats) {
     cats.forEach(cat=> {
         catImage.src = "https://cataas.com/cat/" + cat.id;
+        catImage.dataset.id = cat.id
         catComments.innerHTML = ""
         cat.tags.forEach((tag) => {
             let li = document.createElement("li");
@@ -60,6 +61,7 @@ function renderCat(cats) {
             li.innerText = `${comment}`
             catComments.appendChild(li)
         })
+        
     }})
 }
 
@@ -88,9 +90,29 @@ prevButton.onclick = function priorCat() {
 document.addEventListener("submit", function () {
     event.preventDefault();
     let li = document.createElement("li");
+    let newComment = commentInput.value;
     li.textContent = commentInput.value;
     catComments.appendChild(li);
-    commentForm.reset()
+    commentForm.reset();
+    fetch(`http://localhost:3000/cats/${catImage.dataset.id}`)
+    .then((response) => response.json())
+    .then((cat) => {
+        if (typeof (cat.comments) == 'object') {cat.comments.push(newComment)}
+        else {cat.comments = [newComment]}
+        const configObj = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(cat)
+        }
+        fetch(`http://localhost:3000/cats/${catImage.dataset.id}`, configObj)
+        .then((response) => response.json()
+        .then((updatedCat) => {
+            console.log(updatedCat)
+        }))
+    })
+    
 })
 
 catComments.addEventListener("click", function(e) {
