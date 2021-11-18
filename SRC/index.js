@@ -122,11 +122,12 @@ catComments.addEventListener("click", function(e) {
     }
 })
 
-const averageLikes = [" "]
+const averageLikes = []
 
 function avgMath (likes){
     const total = likes.reduce((acc, c) => acc + c, 0);
-    return avg = total / likes.length
+    avg = total / (likes.length)
+    return avg.toFixed(2)
 }
 
 catLikes.onclick =  function likesClicked() {
