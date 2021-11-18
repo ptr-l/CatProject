@@ -130,7 +130,7 @@ function avgMath (likes){
     return avg.toFixed(2)
 }
 
-catLikes.onclick =  function likesClicked() {
+catLikes.onchange =  function likesClicked() {
     let likesClick = document.querySelector ('input[name="like"]:checked');
     if(likesClick != null) {
         averageLikes.push(parseInt(likesClick.value));
