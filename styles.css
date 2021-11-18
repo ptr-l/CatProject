@@ -41,6 +41,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
     /* border: 1px solid black; */
   }
   
