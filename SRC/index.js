@@ -49,6 +49,12 @@ const prevButton = document.querySelector('#previous-button')
 function renderCat(cats) {
     cats.forEach(cat=> {
         catImage.src = "https://cataas.com/cat/" + cat.id;
+        catComments.innerHTML = ""
+        cat.comments.forEach((comment) => {
+            let li = document.createElement("li");
+            li.innerText = `${comment}`
+            catComments.appendChild(li)
+        })
         cat.tags.forEach((tag) => {
             let li = document.createElement("li");
             li.innerText = `${tag} `;
@@ -74,6 +80,10 @@ prevButton.onclick = function priorCat() {
     }
 }
 
+//POST/PATCH/DELETE coming here ->
+function updateCat() {
+   fetch()
+}
 
 document.addEventListener("submit", function () {
     event.preventDefault();
