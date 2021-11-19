@@ -11,7 +11,18 @@
         "Test Comment",
         "Test Comment 2",
         "Test Comment 3",
-        "Test"
+        "Test",
+        "Test",
+        "",
+        "Testing ratings",
+        "",
+        ""
+      ],
+      "ratings": [
+        5,
+        4,
+        5,
+        5
       ]
     },
     {
@@ -21,6 +32,12 @@
         "jump",
         "fail",
         "gif"
+      ],
+      "comments": [
+        "Test comment"
+      ],
+      "ratings": [
+        5
       ]
     },
     {
@@ -29,6 +46,14 @@
       "tags": [
         "boxe",
         "gif"
+      ],
+      "comments": [
+        "Test comment",
+        "Yet another test"
+      ],
+      "ratings": [
+        5,
+        4
       ]
     },
     {
@@ -38,6 +63,12 @@
         "fail",
         "roll",
         "gif"
+      ],
+      "comments": [
+        "Test Comment"
+      ],
+      "ratings": [
+        4
       ]
     },
     {

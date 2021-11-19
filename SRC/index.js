@@ -39,7 +39,7 @@ const catImage = document.querySelector("#card-image");
 const catTitle = document.querySelector("#card-title")
 const catTags = document.querySelector('#image-tags')
 const catLikes = document.querySelector('.rating')
-const ratingAverage = document.querySelector("#ratings-average")
+const ratingAverage = document.querySelector(".average-rating")
 const ratingCaption = document.querySelector("#ratings-caption")
 const commentForm = document.querySelector('#comment-form')
 const catComments = document.querySelector("#comments-list")
@@ -58,13 +58,21 @@ function renderCat(cats) {
             li.innerText = `${tag} `;
             catTags.appendChild(li);
         }) 
-        if (typeof(cat.comments) == 'object'){cat.comments.forEach((comment) => {
+        if (typeof(cat.ratings) == 'object'){
+            ratingAverage.innerHTML = `This cat's average rating is ${avgMath(cat.ratings)}`;
+        }
+        if (typeof(cat.comments) == 'object')
+            {cat.comments.forEach((comment) => {
+                let li = document.createElement("li");
+                li.innerText = `${comment}`
+                catComments.appendChild(li);
+            })
+        } else {
             let li = document.createElement("li");
-            li.innerText = `${comment}`
-            catComments.appendChild(li)
-        })
-        
-    }})
+            li.innerText = "There are no comments here yet, leave one with your rating!"
+            catComments.appendChild(li);
+        }
+})
 }
 
 nextButton.onclick = function nextCat() {
@@ -95,12 +103,15 @@ document.addEventListener("submit", function (e) {
     let newComment = commentInput.value;
     li.textContent = commentInput.value;
     catComments.appendChild(li);
+    let newRating = parseInt(document.querySelector('input[name="like"]:checked').value);
     commentForm.reset();
     fetch(`http://localhost:3000/cats/${catImage.dataset.id}`)
     .then((response) => response.json())
     .then((cat) => {
         if (typeof (cat.comments) == 'object') {cat.comments.push(newComment)
         } else {cat.comments = [newComment]}
+        if (typeof (cat.ratings) == 'object') {cat.ratings.push(newRating)
+        } else {cat.ratings = [newRating]}
         const configObj = {
             method: 'PATCH',
             headers: {
