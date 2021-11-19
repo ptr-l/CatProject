@@ -95,12 +95,15 @@ document.addEventListener("submit", function (e) {
     let newComment = commentInput.value;
     li.textContent = commentInput.value;
     catComments.appendChild(li);
+    let newRating = parseInt(document.querySelector('input[name="like"]:checked').value);
     commentForm.reset();
     fetch(`http://localhost:3000/cats/${catImage.dataset.id}`)
     .then((response) => response.json())
     .then((cat) => {
         if (typeof (cat.comments) == 'object') {cat.comments.push(newComment)
         } else {cat.comments = [newComment]}
+        if (typeof (cat.ratings) == 'object') {cat.ratings.push(newRating)
+        } else {cat.ratings = [newRating]}
         const configObj = {
             method: 'PATCH',
             headers: {
