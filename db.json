@@ -10,18 +10,13 @@
       "comments": [
         "Test Comment",
         "Test Comment 2",
-        "Test Commenth 3",
-        "Test",
-        "Test Comment",
-        "Test Comment"
+        "Test Commenth 3"
+  
       ],
       "ratings": [
         5,
         4,
-        5,
-        4,
-        4,
-        3
+        5
       ]
     },
     {
@@ -34,15 +29,11 @@
       ],
       "comments": [
         "Test comment",
-        "Test",
-        "!!",
-        "Cheating a comment into the DB directly for testing"
+        "Test"
       ],
       "ratings": [
         5,
-        4,
-        3,
-        2
+        4
       ]
     },
     {
@@ -53,12 +44,10 @@
         "gif"
       ],
       "comments": [
-        "Test comment",
-        "Yet another test"
+        "Test comment"
       ],
       "ratings": [
-        5,
-        4
+        5
       ]
     },
     {
@@ -71,17 +60,11 @@
       ],
       "comments": [
         "Test Comment",
-        "More Testing",
-        "Working on it",
-        "Testtt",
-        "Test"
+        "More Testing"
       ],
       "ratings": [
         4,
-        4,
-        4,
-        5,
-        3
+        4
       ]
     },
     {
