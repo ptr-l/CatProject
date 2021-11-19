@@ -53,6 +53,7 @@ function renderCat(cats) {
         catImage.src = "https://cataas.com/cat/" + cat.id;
         catImage.dataset.id = cat.id
         catComments.innerHTML = ""
+        ratingCaption.innerHTML = ""
         cat.tags.forEach((tag) => {
             let li = document.createElement("li");
             li.innerText = `${tag} `;
@@ -97,11 +98,12 @@ prevButton.onclick = function priorCat() {
 //    fetch()
 // }
 
+
 document.addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault()
     let li = document.createElement("li");
     let newComment = commentInput.value;
-    li.textContent = commentInput.value;
+    li.textContent = newComment;
     catComments.appendChild(li);
     let newRating = parseInt(document.querySelector('input[name="like"]:checked').value);
     commentForm.reset();
@@ -122,10 +124,12 @@ document.addEventListener("submit", function (e) {
         fetch(`http://localhost:3000/cats/${catImage.dataset.id}`, configObj)
         .then((response) => response.json()
         .then((updatedCat) => {
+            e.preventDefault()
             console.log(updatedCat)
+            
         }))
+        
     })
-    
 })
 
 catComments.addEventListener("click", function(e) {
