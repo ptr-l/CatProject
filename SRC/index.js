@@ -25,10 +25,21 @@ const catComments = document.querySelector("#comments-list")
 const commentInput = document.querySelector("#comment")
 const nextButton = document.querySelector('#next-button')
 const prevButton = document.querySelector('#previous-button')
+const postButton = document.querySelector('.comment-button')
 
 const averageLikes = []
 //This is so that we can throw back a good alert when a comment is attempted to be submitted with an empty like rating.
 let likesTruth = false
+//Disable postbutton when there is nothing in the comment field! 
+postButton.disabled = true
+commentForm.onchange = (event) => {
+    event.preventDefault()
+    if (commentInput.value.length < 1) {postButton.disabled = true} else {
+        postButton.disabled = false
+    }
+}
+
+//
 
 // using to generate averages
 const avgMath = (likes) => {

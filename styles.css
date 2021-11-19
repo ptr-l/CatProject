@@ -133,11 +133,17 @@
         border: none;
         font-size: 0.8rem;
         font-weight: 600;
+        background-color: hotpink;
         color: rgb(0, 0, 0);
         cursor: pointer;
         transition: color 300ms;
         border-radius: 10px;
         padding: 5px 10px;
+    }
+
+    .comment-button:disabled {
+        opacity: 50%;
+        
     }
   
     .comment-button:hover {
