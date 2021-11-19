@@ -128,12 +128,6 @@ document.addEventListener("submit", function (e) {
     
 })
 
-catComments.addEventListener("click", function(e) {
-    if (e.target && e.target.nodeName == "LI") {
-        catComments.removeChild(e.target);
-    }
-})
-
 const averageLikes = []
 
 function avgMath (likes){
@@ -162,5 +156,11 @@ catLikes.onchange =  function likesClicked() {
 //         catImage.style.display = "none";
 //     } else {
 //         catImage.style.display = "block"
+//     }
+// })
+
+// catComments.addEventListener("click", function(e) {
+//     if (e.target && e.target.nodeName == "LI") {
+//         catComments.removeChild(e.target);
 //     }
 // })
