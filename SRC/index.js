@@ -27,6 +27,8 @@ const nextButton = document.querySelector('#next-button')
 const prevButton = document.querySelector('#previous-button')
 
 const averageLikes = []
+//This is so that we can throw back a good alert when a comment is attempted to be submitted with an empty like rating.
+let likesTruth = false
 
 // using to generate averages
 const avgMath = (likes) => {
@@ -42,6 +44,7 @@ function renderCat(cats) {
         catImage.dataset.id = cat.id
         catComments.innerHTML = ""
         ratingCaption.innerHTML = "You have not selected a rating!"
+        likesTruth = false
         cat.tags.forEach((tag) => {
             let li = document.createElement("li");
             li.innerText = `${tag} `;
@@ -85,15 +88,18 @@ prevButton.onclick = function() {
 // Updating ratings caption when value is changed
 catLikes.onchange =  function likesClicked() {
     let likesClick = document.querySelector ('input[name="like"]:checked');
+    likesTruth = true
     if(likesClick != null) {
         ratingCaption.innerHTML = `You are rating this cat a ${likesClick.value}/5`
     }
 }
 
 //Server persistence for updates to ratings and comments on a specific cat object
+
 document.addEventListener("submit", function (e) {
     e.preventDefault()
-    let newRating = parseInt(document.querySelector('input[name="like"]:checked').value);
+    if (likesTruth == false) {alert ('Please submit a rating!'); return} else {
+        newRating = parseInt(document.querySelector('input[name="like"]:checked').value);}
     let newComment = commentInput.value;
         let li = document.createElement("li");
         li.textContent = newComment;
