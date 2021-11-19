@@ -46,6 +46,14 @@
       "tags": [
         "boxe",
         "gif"
+      ],
+      "comments": [
+        "Test comment",
+        "Yet another test"
+      ],
+      "ratings": [
+        5,
+        4
       ]
     },
     {
@@ -55,6 +63,12 @@
         "fail",
         "roll",
         "gif"
+      ],
+      "comments": [
+        "Test Comment"
+      ],
+      "ratings": [
+        4
       ]
     },
     {

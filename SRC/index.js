@@ -61,13 +61,18 @@ function renderCat(cats) {
         if (typeof(cat.ratings) == 'object'){
             ratingAverage.innerHTML = `This cat's average rating is ${avgMath(cat.ratings)}`;
         }
-        if (typeof(cat.comments) == 'object'){cat.comments.forEach((comment) => {
+        if (typeof(cat.comments) == 'object')
+            {cat.comments.forEach((comment) => {
+                let li = document.createElement("li");
+                li.innerText = `${comment}`
+                catComments.appendChild(li);
+            })
+        } else {
             let li = document.createElement("li");
-            li.innerText = `${comment}`
-            catComments.appendChild(li)
-        })
-        
-    }})
+            li.innerText = "There are no comments here yet, leave one with your rating!"
+            catComments.appendChild(li);
+        }
+})
 }
 
 nextButton.onclick = function nextCat() {
