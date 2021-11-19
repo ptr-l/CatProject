@@ -6,207 +6,220 @@
     box-sizing: border-box;
   }
   
-  body {
-    padding: 20px;
-    text-align: center;
-    background-color: #fafafa;
-  }
+    body {
+        padding: 20px;
+        text-align: center;
+        background-color: #fafafa;
+    }
 
-  h1 {
-    font-family: fantasy;
-  }
+    h1 {
+        font-family: fantasy;
+    }
 
-  h2 {
-    padding: 10px;
-    text-align: center;
-  }
+    h2 {
+        padding: 10px;
+        text-align: center;
+    }
 
-  h3 {
-    padding: 10px;
-    text-align: center;
-    font-size: 0.8rem
-  }
-
- 
-  .logo {
-    margin-bottom: 20px;
-  }
   
-  .image-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .image-card {
-    width: 35%;
-    border: 1px solid #00000020;
-    border-radius: 20px;
-    text-align: left;
-    background-color: white;
-  }
-  
-  .image {
-    width: 95%;
-    max-height: 500px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* border: 1px solid black; */
-  }
-  
-  .title {
-    text-align: center;
-    padding: 15px 10px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #000000dd;
-  }
-  
-  .rating-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-  }
-
-  .tags {
-    list-style-type: none;
-    margin-left: 0;
-    padding-top: 10px;
-    padding-left: 25px;
-    font-size: 0.8rem;
-    font-weight: 700;
-  }
-
-  .tags li {
-    margin: 2px 0;
-    letter-spacing: 0.2px;
-    display: inline;
-  }
+    h3 {
+        padding: 10px;
+        text-align: center;
+        font-size: 0.8rem
+    }
     
-  .comments {
-    list-style-type: none;
-    margin-left: 0;
-    margin-top: 10px;
-    padding-left: 15px;
-    font-size: 0.85rem;
-  }
-  
-  .comments li {
-    margin: 2px 0;
-    letter-spacing: 0.2px;
-  }
-  
-  .comment-form {
-    width: 100%;
-    border-top: 1px solid #00000020;
-    padding: 15px;
-    margin-top: 10px;
-  }
-  
-  .comment-input {
-    width: 85%;
-    border: none;
-    font-size: 0.8rem;
-  }
-  
-  .comment-input:focus {
-    outline: none;
-  }
-  
-  .comment-button {
-    border: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    transition: color 300ms;
-    border-radius: 10px;
-    padding: 5px 10px;
-  }
-  
-  .comment-button:hover {
-    color: rgb(245, 148, 37);
-  }
-  
-  .comment-button:active {
-    color: rgb(250, 242, 127);
-  }
-  
-  .comment-button:focus {
-    outline: none;
-  }
-
-  .nav-button {
-    border: none;
-    font-size: 1.0rem;
-    font-weight: 600;
-    background-color:gold;
-    padding: 10px 10px;
-    margin-top: 10px;
-    margin-left: 30px;
-    margin-right: 30px;
-    border-radius: 10px;
-    transition: color 300ms;
-    cursor: pointer;
-  }
-
-  .nav-button:hover {
-    color: rgb(245, 148, 37)
-  }
-
-  .rating {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 175px;
-    height: 30px;
-    padding: 5px 10px;
-    margin: auto;
-    border-radius: 30px;
-    background: #FFF;
-    display: block;
-    overflow: hidden;
-    unicode-bidi: bidi-override;
-    direction: rtl;
-  }
-  .rating:not(:checked) > input {
-    display: none;
-  }
-
-  #like {
-    bottom: -65px;
-  }
-  #like:not(:checked) > label {
-    cursor:pointer;
-    float: right;
-    width: 30px;
-    height: 30px;
-    display: block;
     
-    color: rgba(233, 54, 40, .4);
-    line-height: 33px;
-    text-align: center;
-  }
-  #like:not(:checked) > label:hover,
-  #like:not(:checked) > label:hover ~ label {
-    color: rgba(233, 54, 40, .6);
-  }
-  #like > input:checked + label:hover,
-  #like > input:checked + label:hover ~ label,
-  #like > input:checked ~ label:hover,
-  #like > input:checked ~ label:hover ~ label,
-  #like > label:hover ~ input:checked ~ label {
-    color: rgba(233, 54, 40, .8);
-  }
-  #like > input:checked ~ label {
-    color: rgb(233, 54, 40);
-  }
+    .logo {
+        margin-bottom: 20px;
+    }
+    
+    .image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .image-card {
+        width: 35%;
+        border: 1px solid #00000020;
+        border-radius: 20px;
+        text-align: left;
+        background-color: white;
+    }
+    
+    .image {
+        width: 95%;
+        max-height: 500px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        /* border: 1px solid black; */
+    }
+    
+    .title {
+        text-align: center;
+        padding: 15px 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #000000dd;
+    }
 
-  .current-rating {
-    text-align:center;
-    padding:15px 10px;
-    font-size:.90rem;
-  }
+    .rating-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .average-rating {
+        vertical-align: middle;
+        float: right;
+        padding-top: 10px;
+        padding-right: 15px;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+    
+    .tags {
+        list-style-type: none;
+        margin-left: 0;
+        padding-top: 10px;
+        padding-left: 25px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        display: inline-block;
+    }
+
+    .tags li {
+        margin: 2px 0;
+        letter-spacing: 0.2px;
+        display: inline;
+    }
+    
+    .comments {
+        list-style-type: none;
+        margin-left: 0;
+        margin-top: 10px;
+        padding-left: 15px;
+        font-size: 0.85rem;
+    }
+  
+    .comments li {
+        margin: 2px 0;
+        letter-spacing: 0.2px;
+    }
+  
+    .comment-form {
+        width: 100%;
+        border-top: 1px solid #00000020;
+        padding: 15px;
+        margin-top: 10px;
+    }
+  
+    .comment-input {
+        width: 85%;
+        border: none;
+        font-size: 0.8rem;
+    }
+  
+    .comment-input:focus {
+        outline: none;
+    }
+  
+    .comment-button {
+        border: none;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        transition: color 300ms;
+        border-radius: 10px;
+        padding: 5px 10px;
+    }
+  
+    .comment-button:hover {
+        color: rgb(245, 148, 37);
+    }
+  
+    .comment-button:active {
+        color: rgb(250, 242, 127);
+    }
+  
+    .comment-button:focus {
+        outline: none;
+    }
+
+    .nav-button {
+        border: none;
+        font-size: 1.0rem;
+        font-weight: 600;
+        background-color:gold;
+        padding: 10px 10px;
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        border-radius: 10px;
+        transition: color 300ms;
+        cursor: pointer;
+    }
+
+    .nav-button:hover {
+        color: rgb(245, 148, 37)
+    }
+
+    .rating {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 175px;
+        height: 30px;
+        padding: 5px 10px;
+        margin: auto;
+        border-radius: 30px;
+        background: #FFF;
+        display: block;
+        overflow: hidden;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
+
+    .rating:not(:checked) > input {
+        display: none;
+    }
+
+    #like {
+        bottom: -65px;
+    }
+
+    #like:not(:checked) > label {
+        cursor:pointer;
+        float: right;
+        width: 30px;
+        height: 30px;
+        display: block;
+        
+        color: rgba(233, 54, 40, .4);
+        line-height: 33px;
+        text-align: center;
+    }
+    #like:not(:checked) > label:hover,
+    #like:not(:checked) > label:hover ~ label {
+        color: rgba(233, 54, 40, .6);
+    }
+    #like > input:checked + label:hover,
+    #like > input:checked + label:hover ~ label,
+    #like > input:checked ~ label:hover,
+    #like > input:checked ~ label:hover ~ label,
+    #like > label:hover ~ input:checked ~ label {
+        color: rgba(233, 54, 40, .8);
+    }
+    #like > input:checked ~ label {
+        color: rgb(233, 54, 40);
+    }
+
+    .current-rating {
+        text-align:center;
+        padding:15px 10px;
+        font-size:.90rem;
+    }

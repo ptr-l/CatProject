@@ -40,6 +40,7 @@ const catTitle = document.querySelector("#card-title")
 const catTags = document.querySelector('#image-tags')
 const catLikes = document.querySelector('.rating')
 const ratingAverage = document.querySelector("#ratings-average")
+const ratingCaption = document.querySelector("#ratings-caption")
 const commentForm = document.querySelector('#comment-form')
 const catComments = document.querySelector("#comments-list")
 const commentInput = document.querySelector("#comment")
@@ -130,14 +131,18 @@ function avgMath (likes){
     return avg.toFixed(2)
 }
 
+
 catLikes.onchange =  function likesClicked() {
     let likesClick = document.querySelector ('input[name="like"]:checked');
     if(likesClick != null) {
-        averageLikes.push(parseInt(likesClick.value));
-        console.log(averageLikes);
-        ratingAverage.innerHTML = "This cat's average rating is: " + avgMath(averageLikes);
+        ratingCaption.innerHTML = `You are rating this cat a ${likesClick.value}/5`
     }
 }
+
+// averageLikes.push(parseInt(likesClick.value));
+// console.log(averageLikes);
+
+// + avgMath(averageLikes);
 
 // // BONUS: hide+show image when title clicked
 
