@@ -39,7 +39,7 @@ const catImage = document.querySelector("#card-image");
 const catTitle = document.querySelector("#card-title")
 const catTags = document.querySelector('#image-tags')
 const catLikes = document.querySelector('.rating')
-const ratingAverage = document.querySelector("#ratings-average")
+const ratingAverage = document.querySelector(".average-rating")
 const ratingCaption = document.querySelector("#ratings-caption")
 const commentForm = document.querySelector('#comment-form')
 const catComments = document.querySelector("#comments-list")
@@ -58,6 +58,9 @@ function renderCat(cats) {
             li.innerText = `${tag} `;
             catTags.appendChild(li);
         }) 
+        if (typeof(cat.ratings) == 'object'){
+            ratingAverage.innerHTML = `This cat's average rating is ${avgMath(cat.ratings)}`;
+        }
         if (typeof(cat.comments) == 'object'){cat.comments.forEach((comment) => {
             let li = document.createElement("li");
             li.innerText = `${comment}`
