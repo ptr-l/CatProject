@@ -88,8 +88,8 @@ prevButton.onclick = function priorCat() {
 //    fetch()
 // }
 
-document.addEventListener("submit", function () {
-    event.preventDefault();
+document.addEventListener("submit", function (e) {
+    e.preventDefault();
     let li = document.createElement("li");
     let newComment = commentInput.value;
     li.textContent = commentInput.value;
@@ -98,8 +98,8 @@ document.addEventListener("submit", function () {
     fetch(`http://localhost:3000/cats/${catImage.dataset.id}`)
     .then((response) => response.json())
     .then((cat) => {
-        if (typeof (cat.comments) == 'object') {cat.comments.push(newComment)}
-        else {cat.comments = [newComment]}
+        if (typeof (cat.comments) == 'object') {cat.comments.push(newComment)
+        } else {cat.comments = [newComment]}
         const configObj = {
             method: 'PATCH',
             headers: {
