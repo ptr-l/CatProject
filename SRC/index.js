@@ -88,8 +88,8 @@ prevButton.onclick = function priorCat() {
 //    fetch()
 // }
 
-document.addEventListener("submit", function () {
-    event.preventDefault();
+document.addEventListener("submit", function (e) {
+    e.preventDefault();
     let li = document.createElement("li");
     let newComment = commentInput.value;
     li.textContent = commentInput.value;
@@ -98,8 +98,8 @@ document.addEventListener("submit", function () {
     fetch(`http://localhost:3000/cats/${catImage.dataset.id}`)
     .then((response) => response.json())
     .then((cat) => {
-        if (typeof (cat.comments) == 'object') {cat.comments.push(newComment)}
-        else {cat.comments = [newComment]}
+        if (typeof (cat.comments) == 'object') {cat.comments.push(newComment)
+        } else {cat.comments = [newComment]}
         const configObj = {
             method: 'PATCH',
             headers: {
@@ -122,14 +122,15 @@ catComments.addEventListener("click", function(e) {
     }
 })
 
-const averageLikes = [" "]
+const averageLikes = []
 
 function avgMath (likes){
     const total = likes.reduce((acc, c) => acc + c, 0);
-    return avg = total / likes.length
+    avg = total / (likes.length)
+    return avg.toFixed(2)
 }
 
-catLikes.onclick =  function likesClicked() {
+catLikes.onchange =  function likesClicked() {
     let likesClick = document.querySelector ('input[name="like"]:checked');
     if(likesClick != null) {
         averageLikes.push(parseInt(likesClick.value));
