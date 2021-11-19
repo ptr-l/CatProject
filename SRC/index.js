@@ -53,7 +53,7 @@ function renderCat(cats) {
         catImage.src = "https://cataas.com/cat/" + cat.id;
         catImage.dataset.id = cat.id
         catComments.innerHTML = ""
-        ratingCaption.innerHTML = ""
+        ratingCaption.innerHTML = "You have not selected a rating!"
         cat.tags.forEach((tag) => {
             let li = document.createElement("li");
             li.innerText = `${tag} `;
