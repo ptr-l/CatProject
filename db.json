@@ -10,18 +10,11 @@
       "comments": [
         "Test Comment",
         "Test Comment 2",
-        "Test Comment 3",
-        "Test",
-        "Test",
-        "",
-        "Testing ratings",
-        "",
-        ""
+        "Test Commenth 3"
       ],
       "ratings": [
         5,
         4,
-        5,
         5
       ]
     },
@@ -34,10 +27,16 @@
         "gif"
       ],
       "comments": [
-        "Test comment"
+        "Test comment",
+        "Test",
+        "!!",
+        "Cheating a comment into the DB directly for testing"
       ],
       "ratings": [
-        5
+        5,
+        4,
+        3,
+        2
       ]
     },
     {
@@ -65,10 +64,18 @@
         "gif"
       ],
       "comments": [
-        "Test Comment"
+        "Test Comment",
+        "More Testing",
+        "Working on it",
+        "Testtt",
+        "Test"
       ],
       "ratings": [
-        4
+        4,
+        4,
+        4,
+        5,
+        3
       ]
     },
     {
