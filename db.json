@@ -10,12 +10,18 @@
       "comments": [
         "Test Comment",
         "Test Comment 2",
-        "Test Commenth 3"
+        "Test Commenth 3",
+        "Test",
+        "Test Comment",
+        "Test Comment"
       ],
       "ratings": [
         5,
         4,
-        5
+        5,
+        4,
+        4,
+        3
       ]
     },
     {
